@@ -23,7 +23,7 @@ Try the application live at [https://hang-web-app.herokuapp.com](https://hang-we
 - User can send/receive messages with partners they pair with
 
 ## Preview
-![Hang](images/preview.gif)
+![Hang](server/public/images/preview.gif)
 
 ## Development
 

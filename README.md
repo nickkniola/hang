@@ -20,6 +20,7 @@ Try the application live at [https://hang-web-app.herokuapp.com](https://hang-we
 - User can pair with another user for a selected activity
 - User can pair with another user for a random activity
 - User can accept/reject suggested activity with suggested partner
+- User can view a list of all matches/activities
 - User can send/receive messages with partners they pair with
 
 ## Preview
@@ -51,8 +52,8 @@ Try the application live at [https://hang-web-app.herokuapp.com](https://hang-we
 
 4. Start webpack
 
-  ```shell
-  npm run build
-  ```
+    ```shell
+    npm run build
+    ```
 
 5. Visit http://localhost:3000 in browser

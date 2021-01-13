@@ -1,8 +1,8 @@
 {
-  "name": "final-project",
+  "name": "hang",
   "version": "1.0.0",
   "private": true,
-  "description": "A full stack JavaScript solo project.",
+  "description": "The only web app which makes plans for you!",
   "main": "server/index.js",
   "scripts": {
     "build": "webpack",

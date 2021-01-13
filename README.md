@@ -38,18 +38,21 @@ Try the application live at [https://hang-web-app.herokuapp.com](https://hang-we
 
 2. Install dependencies.
 
-    ```npm install
+    ```shell
+    npm install
     ```
 
 3. Start PostgreSQL server
 
-    ```sudo service postgresql start
+    ```shell
+    sudo service postgresql start
     pgweb --db=Hang
     ```
 
 4. Start webpack
 
-  ```npm run build
+  ```shell
+  npm run build
   ```
 
 5. Visit http://localhost:3000 in browser

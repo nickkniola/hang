@@ -9,6 +9,7 @@ Pair up with people in your location based on common interests in a variety of a
 - Express.js
 - JavaScript ES6
 - PostgreSQL
+- Socket.IO
 - Semantic UI
 - CSS3
 
@@ -21,7 +22,7 @@ Try the application live at [https://hang-web-app.herokuapp.com](https://hang-we
 - User can pair with another user for a random activity
 - User can accept/reject suggested activity with suggested partner
 - User can view a list of all matches/activities
-- User can send/receive messages with partners they pair with
+- User can send/receive live messages with partners they pair with
 
 ## Preview
 ![Hang](server/public/images/preview.gif)

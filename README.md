@@ -1,13 +1,13 @@
 # hang
 
-Pair up with people in your location based on your common interests in a variety of activities. The only app which makes plans for you!
+Pair up with people in your location based on common interests in a variety of activities. The only app which makes plans for you!
 
 ## Technologies Used
 
-- JavaScript ES6
 - React.js
 - Node.js
 - Express.js
+- JavaScript ES6
 - PostgreSQL
 - Semantic UI
 - CSS3

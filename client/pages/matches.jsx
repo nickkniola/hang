@@ -41,6 +41,8 @@ export default class Matches extends React.Component {
     const params = new URLSearchParams();
     params.append('userId', this.state.userId);
     params.append('partnerId', event.target.id);
+    const match = this.state.matches.filter(match => match.userId === parseInt(event.target.id));
+    params.append('partnerName', match[0].firstName);
     this.props.history.push('/messages?' + params);
   }
 

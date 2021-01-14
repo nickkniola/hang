@@ -224,12 +224,14 @@ io.on('connection', socket => {
   socket.join(roomId);
   socket.on('send-message', data => {
     io.sockets.to(roomId).emit('message', { senderUserId: parseInt(userId), message: data.message });
+    const date = new Date();
+    const timeUTC = date.getTime();
     const sql = `
-      insert into "Messages" ("messageContent", "userId", "partnerId")
-          values ($1, $2, $3)
+      insert into "Messages" ("messageContent", "userId", "partnerId", "time")
+          values ($1, $2, $3, $4)
           returning *;
     `;
-    const params = [data.message, data.userId, data.partnerId];
+    const params = [data.message, data.userId, data.partnerId, timeUTC];
     db.query(sql, params)
       .catch(err => console.error(err));
   });

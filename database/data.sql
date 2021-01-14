@@ -8,8 +8,8 @@ insert into "availabilityTypes" ("label")
             ('Weekdays Evening');
 
 insert into "Users" ("firstName", "lastName", "email", "password", "profileImage", "bio", "interests")
-     values ('Kristy', 'San', 'ksan@mac.com', 'dsa432', 'server/public/images/kristy.png', 'I enjoy food and going to different restaurants.', 'food, Italian food, cuisine, hiking'),
-     ('Demo', 'User', 'du@email.com', 'demouser', 'server/public/images/kristy.png', 'I am a demo user.', 'demoing');
+     values ('Kristy', 'San', 'ksan@mac.com', 'dsa432', 'server/public/images/kristy.png', 'I enjoy food and going to different restaurants.', 'food, Italian food, cuisine, hiking');
+
 
 insert into "activityTypes" ("label")
      values ('Food'),

@@ -15,10 +15,6 @@ body {
   height: 90vh;
 }
 
-.text-container {
-  padding-top: 8rem;
-}
-
 .header-main {
   font-size: 5rem;
   font-family: 'Red Hat Display', sans-serif;
@@ -107,4 +103,8 @@ h3.message-header {
 
 .sign-up-segment {
   padding-bottom: 5rem !important;
+}
+
+.login-form {
+  margin-top: 4rem;
 }

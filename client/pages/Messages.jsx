@@ -91,10 +91,10 @@ export default class Messages extends React.Component {
         <h3 className="secondary-header message-header">{this.partnerName}</h3>
         <div className="ui divider message-divider"></div>
         <div className="ui grid two columns message-container">
-          { messages.map((message, index) =>
+          { messages.map(message =>
             message.userId === userId
               ? <React.Fragment key={message.messageId}>
-                  <div className="row blue-message-right" >
+                  <div className="row blue-message-right">
                     <div className="ui compact blue message right floated column">
                     <p>{message.messageContent}</p>
                     </div>
@@ -106,8 +106,8 @@ export default class Messages extends React.Component {
                   </div>
                 </React.Fragment>
               : <React.Fragment key={message.messageId}>
-                  <div className="row blue-message-left" key={message.messageId}>
-                    <div className="ui compact gray message left floated column" >
+                  <div className="row blue-message-left">
+                    <div className="ui compact gray message left floated column">
                       <p>{message.messageContent}</p>
                     </div>
                   </div>

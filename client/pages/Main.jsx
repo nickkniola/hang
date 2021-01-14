@@ -4,8 +4,8 @@ export default class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: 'du@email.com',
-      password: 'demouser'
+      email: 'testuser@email.com',
+      password: 'testuser'
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleTestUser = this.handleTestUser.bind(this);

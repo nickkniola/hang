@@ -20,6 +20,7 @@ export default class Messages extends React.Component {
     this.params = new URLSearchParams(this.props.location.search);
     this.userId = this.params.get('userId');
     this.partnerId = this.params.get('partnerId');
+    this.partnerName = this.params.get('partnerName');
     this.socket = io('/', { query: { userId: this.userId, partnerId: this.partnerId } });
     const data = JSON.parse(localStorage.getItem('userData'));
     const token = data.token;
@@ -83,21 +84,35 @@ export default class Messages extends React.Component {
         <button className="ui icon button basic message-button" onClick={this.handleClick}>
           <i className="angle left icon"></i>
         </button>
-        <h3 className="secondary-header message-header">Messages</h3>
+        <h3 className="secondary-header message-header">{this.partnerName}</h3>
         <div className="ui divider message-divider"></div>
         <div className="ui grid two columns message-container">
-          { messages.map(message =>
+          { messages.map((message, index) =>
             message.userId === userId
-              ? <div className="row blue-message-right" key={message.messageId}>
-                  <div className="ui compact blue message right floated column" >
+              ? <React.Fragment key={message.messageId}>
+                  <div className="row blue-message-right" >
+                    <div className="ui compact blue message right floated column">
                     <p>{message.messageContent}</p>
+                    </div>
                   </div>
-                </div>
-              : <div className="row blue-message-left" key={message.messageId}>
-                  <div className="ui compact gray message left floated column" >
-                    <p>{message.messageContent}</p>
+                  <div className="row date-time-container">
+                    <div className="ui compact basic label mini right floated column date-time">
+                      Thu Jan 14 2021 10:51:17
+                    </div>
                   </div>
-                </div>
+                </React.Fragment>
+              : <React.Fragment key={message.messageId}>
+                  <div className="row blue-message-left" key={message.messageId}>
+                    <div className="ui compact gray message left floated column" >
+                      <p>{message.messageContent}</p>
+                    </div>
+                  </div>
+                  <div className="row left-date-time-container">
+                    <div className="ui compact basic label mini left floated column date-time">
+                      Thu Jan 14 2021 10:51:17
+                    </div>
+                  </div>
+                </React.Fragment>
           )
           }
           { liveChat.map((liveMessage, index) =>

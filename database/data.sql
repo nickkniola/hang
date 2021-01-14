@@ -19,5 +19,5 @@ insert into "activityTypes" ("label")
 insert into "Activities" ("googlePlacesLink", "googleMapsLink", "activityTypeId", "specificActivity", "location", "date", "time", "hostId", "externalGoogleMapsUrl", "guestId")
      values ('https://maps.googleapis.com/maps/api/place/textsearch/json?query=salad+restaurants+in+koreatown+los+angles+California&key=${process.env.GOOGLE_PLACES_API_KEY}', 'https://www.google.com/maps/embed/v1/place?key=${process.env.GOOGLE_PLACES_API_KEY}', 1, 'restaurant', 'sweetgreen', '2021-03-02', '1PM', 2, 'https://www.google.com/maps/place/sweetgreen/@34.0981721,-118.3249043,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2bf37dfdcdc19:0x3fab073841200064!8m2!3d34.0981721!4d-118.3227156', 1);
 
-insert into "Messages" ("messageContent", "userId", "partnerId")
-     values ('Hello. Are you ready to meet at sweetgreen?', 1, 2);
+insert into "Messages" ("messageContent", "userId", "partnerId", "time")
+     values ('Hello. Are you ready to meet at sweetgreen?', 1, 2, 1610652610723);

@@ -78,6 +78,7 @@ h3.message-header {
 .blue-message-left {
   margin-top: 0.3rem;
   margin-left: 1rem;
+  padding-bottom: 0 !important;
 }
 
 .blue-message-right {
@@ -107,4 +108,18 @@ h3.message-header {
 
 .login-form {
   margin-top: 4rem;
+}
+
+.date-time-container {
+  padding: 0 !important;
+}
+
+.left-date-time-container {
+  padding: 0 !important;
+  margin-left: 1.2rem;
+}
+
+.date-time {
+  border: none !important;
+  padding-left: 0 !important;
 }

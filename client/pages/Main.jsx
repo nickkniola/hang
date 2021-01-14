@@ -3,11 +3,22 @@ import React from 'react';
 export default class Main extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      email: 'du@email.com',
+      password: 'demouser'
+    };
     this.handleClick = this.handleClick.bind(this);
+    this.handleTestUser = this.handleTestUser.bind(this);
   }
 
   handleClick() {
     this.props.history.push('/signup');
+  }
+
+  handleTestUser(event) {
+    event.preventDefault();
+    console.log('test');
+    console.log(this.state.email, this.state.password);
   }
 
   render() {
@@ -23,20 +34,20 @@ export default class Main extends React.Component {
               <div className="field">
                 <div className="ui left icon input">
                   <i className="user icon"></i>
-                  <input type="text" name="email" placeholder="E-mail address" />
+                  <input type="text" name="email" placeholder="E-mail address" value={this.state.email} disabled />
                 </div>
               </div>
               <div className="field">
                 <div className="ui left icon input">
                   <i className="lock icon"></i>
-                  <input type="password" name="password" placeholder="Password" />
+                  <input type="password" name="password" placeholder="Password" value={this.state.password} disabled />
                 </div>
               </div>
-              <div className="ui fluid large primary submit button">Try It Out</div>
+              <button type="button" className="ui fluid large primary submit button" onClick={this.handleTestUser}>Try It Out</button>
             </div>
           </form>
           <div className="button-container">
-            <button className="ui primary button sign-up-button" type="button" onClick={this.handleClick}>Sign Up</button>
+            <button className="ui button sign-up-button" type="button" onClick={this.handleClick}>Sign Up</button>
           </div>
         </div>
       </div>

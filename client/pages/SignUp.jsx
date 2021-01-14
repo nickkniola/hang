@@ -62,8 +62,8 @@ export default class SignUp extends React.Component {
               <label htmlFor="password">Password</label>
               <input type="password" name="password" id="password" placeholder="Password" autoComplete="on" value={this.state.password} onChange={this.handleChange} required />
             </div>
-            <div className="button-container sign-up">
-              <button className="large ui primary button sign-up-button" type="submit">Create Account</button>
+            <div className="button-container">
+              <button className="large ui primary button" type="submit">Create Account</button>
             </div>
           </div>
         </form>

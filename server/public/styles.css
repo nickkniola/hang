@@ -38,7 +38,7 @@ body {
 .button-container {
   display: flex;
   justify-content: center;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 .secondary-header {

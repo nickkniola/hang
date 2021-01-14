@@ -17,8 +17,23 @@ export default class Main extends React.Component {
 
   handleTestUser(event) {
     event.preventDefault();
-    console.log('test');
-    console.log(this.state.email, this.state.password);
+    const formData = this.state;
+    fetch('/api/auth/sign-in', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        const dataJson = JSON.stringify(data);
+        localStorage.setItem('userData', dataJson);
+      })
+      .then(() => {
+        this.props.history.push('/pairing/select');
+      })
+      .catch(() => console.error('An unexpected error occurred'));
   }
 
   render() {

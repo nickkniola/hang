@@ -66,7 +66,7 @@ CREATE TABLE "Messages" (
 	"messageContent" TEXT NOT NULL,
 	"userId" integer NOT NULL,
 	"partnerId" integer,
-	"time" integer,
+	"time" bigint,
 	CONSTRAINT "Messages_pk" PRIMARY KEY ("messageId")
 ) WITH (
   OIDS=FALSE

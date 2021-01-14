@@ -33,8 +33,12 @@ export default class Messages extends React.Component {
     })
       .then(response => response.json())
       .then(data => {
+        const revisedData = data.map(message => {
+          const date = new Date(parseInt(message.time));
+          return { messageId: message.messageId, userId: message.userId, partnerId: message.partnerId, messageContent: message.messageContent, time: date.toString().slice(0, 25) };
+        });
         this.setState({
-          chat: data
+          chat: revisedData
         });
       })
       .catch(() => console.error('An unexpected error occurred.'));
@@ -97,7 +101,7 @@ export default class Messages extends React.Component {
                   </div>
                   <div className="row date-time-container">
                     <div className="ui compact basic label mini right floated column date-time">
-                      Thu Jan 14 2021 10:51:17
+                      {message.time}
                     </div>
                   </div>
                 </React.Fragment>
@@ -109,7 +113,7 @@ export default class Messages extends React.Component {
                   </div>
                   <div className="row left-date-time-container">
                     <div className="ui compact basic label mini left floated column date-time">
-                      Thu Jan 14 2021 10:51:17
+                      {message.time}
                     </div>
                   </div>
                 </React.Fragment>

@@ -19,7 +19,7 @@ export default class Menu extends React.Component {
         <NavLink className="item" to={ navAccess ? '/random/select' : '/'} >
           Random
         </NavLink>
-        <NavLink className="item" to={ navAccess ? '/pairing/matches' : '/'}>
+        <NavLink className="item" to={ navAccess ? '/matches' : '/'}>
           Matches
         </NavLink>
       </div>

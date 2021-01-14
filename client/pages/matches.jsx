@@ -64,7 +64,7 @@ export default class Matches extends React.Component {
                     </div>
                   </div>
                 )
-              : <><div className="ui header secondary-header red">No matches</div></>
+              : <div className="ui active centered inline loader"></div>
             }
           </div>
         </div>
@@ -92,7 +92,7 @@ export default class Matches extends React.Component {
                   <br/>
                 </div>
                 )
-              : <><div className="ui header secondary-header red">No activities</div></>
+              : <div className="ui active centered inline loader"></div>
             }
           </div>
         </div>

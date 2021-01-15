@@ -8,6 +8,7 @@ const fetch = require('node-fetch');
 const errorMiddleware = require('./error-middleware');
 const authorizationMiddleware = require('./authorization-middleware');
 const ClientError = require('./client-error');
+const path = require('path');
 
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL
@@ -234,6 +235,12 @@ io.on('connection', socket => {
     const params = [data.message, data.userId, data.partnerId, timeUTC];
     db.query(sql, params)
       .catch(err => console.error(err));
+  });
+});
+
+app.use((req, res) => {
+  res.sendFile('/index.html', {
+    root: path.join(__dirname, 'public')
   });
 });
 

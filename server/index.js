@@ -76,13 +76,7 @@ app.post('/api/auth/sign-in', (req, res, next) => {
     .catch(err => next(err));
 });
 
-app.use((req, res, next) => {
-  res.sendFile('/index.html', {
-    root: path.join(__dirname, 'public')
-  });
-});
-
-app.use(authorizationMiddleware);
+app.use('/api', authorizationMiddleware);
 
 app.post('/api/activities', (req, res, next) => {
   let preferredActivity = req.body.preferredActivity;
@@ -241,6 +235,12 @@ io.on('connection', socket => {
     const params = [data.message, data.userId, data.partnerId, timeUTC];
     db.query(sql, params)
       .catch(err => console.error(err));
+  });
+});
+
+app.use((req, res, next) => {
+  res.sendFile('/index.html', {
+    root: path.join(__dirname, 'public')
   });
 });
 

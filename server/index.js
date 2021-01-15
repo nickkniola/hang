@@ -76,6 +76,14 @@ app.post('/api/auth/sign-in', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'server/public/index.html'), function (err) {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
+});
+
 app.use(authorizationMiddleware);
 
 app.post('/api/activities', (req, res, next) => {
@@ -235,12 +243,6 @@ io.on('connection', socket => {
     const params = [data.message, data.userId, data.partnerId, timeUTC];
     db.query(sql, params)
       .catch(err => console.error(err));
-  });
-});
-
-app.use((req, res) => {
-  res.sendFile('/index.html', {
-    root: path.join(__dirname, 'public')
   });
 });
 

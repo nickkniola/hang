@@ -38,7 +38,7 @@ export default class Main extends React.Component {
 
   render() {
     return (
-      <div className="main-container ui middle aligned center aligned grid">
+      <div className="main-container ui center aligned grid">
         <div className="column form-column">
           <div className="text-container">
             <h1 className="header-main"><img className="header-logo" src="images/hang_logo.png"></img>Hang</h1>

@@ -43,30 +43,32 @@ export default class SignUp extends React.Component {
   render() {
     return (
       <div className="sign-up-container">
-        <form className="ui form" onSubmit={this.handleSubmit}>
-          <div className="ui segment sign-up-segment">
-            <h2 className="secondary-header">Sign Up</h2>
-            <div className="field">
-              <label htmlFor="firstName">First Name</label>
-              <input type="text" name="firstName" id="firstName" placeholder="First Name" value={this.state.firstName} onChange={this.handleChange} required />
+        <div className="activity-form">
+          <h2 className="secondary-header">Sign Up</h2>
+          <form className="ui form" onSubmit={this.handleSubmit}>
+            <div className="ui segment sign-up-segment">
+              <div className="field">
+                <label htmlFor="firstName">First Name</label>
+                <input type="text" name="firstName" id="firstName" placeholder="First Name" value={this.state.firstName} onChange={this.handleChange} required />
+              </div>
+              <div className="field">
+                <label htmlFor="name">Last Name</label>
+                <input type="text" name="lastName" id="lastName" placeholder="Last Name" value={this.state.lastName} onChange={this.handleChange} required />
+              </div>
+              <div className="field">
+                <label htmlFor="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} required />
+              </div>
+              <div className="field">
+                <label htmlFor="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Password" autoComplete="on" value={this.state.password} onChange={this.handleChange} required />
+              </div>
+              <div className="button-container">
+                <button className="large ui primary button" type="submit">Create Account</button>
+              </div>
             </div>
-            <div className="field">
-              <label htmlFor="name">Last Name</label>
-              <input type="text" name="lastName" id="lastName" placeholder="Last Name" value={this.state.lastName} onChange={this.handleChange} required />
-            </div>
-            <div className="field">
-              <label htmlFor="email">Email</label>
-              <input type="email" name="email" id="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} required />
-            </div>
-            <div className="field">
-              <label htmlFor="password">Password</label>
-              <input type="password" name="password" id="password" placeholder="Password" autoComplete="on" value={this.state.password} onChange={this.handleChange} required />
-            </div>
-            <div className="button-container">
-              <button className="large ui primary button" type="submit">Create Account</button>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     );
   }

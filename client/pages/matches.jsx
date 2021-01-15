@@ -72,8 +72,8 @@ export default class Matches extends React.Component {
         </div>
         <div className="nine wide column matches-container">
           <h2 className="secondary-header">Activities</h2>
-          <div className="ui divider"></div>
-          <div className="ui middle aligned list activities-container">
+          <div className="ui divider thin-divider"></div>
+          <div className="activities-container">
             {this.state.activities
               ? this.state.activities.map(activity =>
                 <div key={activity.activityId}>

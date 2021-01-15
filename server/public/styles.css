@@ -55,9 +55,9 @@ body {
   padding-right: 0 !important;
 }
 
-.activities-container {
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
+.paragraph-description {
+  margin-left: 0.8rem;
+  margin-right: 0.8rem;
 }
 
 button.message-button {
@@ -77,8 +77,12 @@ h3.message-header {
   height: calc(100vh - 130px);
 }
 
-.message-divider {
-  margin-top: 0.4rem !important;
+.thin-divider {
+  margin-bottom: 0 !important;
+}
+
+.activities-container {
+  margin-top: 0.4rem;
 }
 
 .blue-message-left {
@@ -107,10 +111,6 @@ h3.message-header {
 
 .message-bottom {
   height: 1rem;
-}
-
-.sign-up-segment {
-  padding-bottom: 5rem !important;
 }
 
 .login-form {
@@ -147,11 +147,11 @@ h3.message-header {
   }
 
   .form-column {
-    position: relative;
-    bottom: 10rem;
+    margin-top: 5rem;
   }
 
-  .activity-container {
+  .activity-container,
+  .sign-up-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -160,7 +160,7 @@ h3.message-header {
 
   .activity-form {
     align-self: center;
-    max-width: 400px;
+    width: 400px;
   }
 
   .message-container {

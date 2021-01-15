@@ -48,7 +48,7 @@ export default class Matches extends React.Component {
 
   render() {
     return (
-      <div className="ui grid celled">
+      <div className="ui grid celled matches-activities-container">
         <div className="seven wide column matches-container">
           <h2 className="secondary-header">Matches</h2>
           <div className="ui middle aligned celled list">
@@ -57,7 +57,7 @@ export default class Matches extends React.Component {
                   <div className="item" key={match.userId}>
                     <img className="ui avatar image" src={match.profileImage} />
                     <div className="content">
-                      <div className="header">{match.firstName}</div>
+                      <div className="header match-header">{match.firstName}</div>
                     </div>
                     <div className="right floated content">
                       <button type="button" id={match.userId} onClick={this.handleClick} className="ui icon button basic message-button">
@@ -70,16 +70,16 @@ export default class Matches extends React.Component {
             }
           </div>
         </div>
-        <div className="nine wide column">
+        <div className="nine wide column matches-container">
           <h2 className="secondary-header">Activities</h2>
           <div className="ui divider"></div>
-          <div className="ui middle aligned list">
+          <div className="ui middle aligned list activities-container">
             {this.state.activities
               ? this.state.activities.map(activity =>
                 <div key={activity.activityId}>
                   <div className="item">
-                    <div className="content">
-                      <div className="header">{activity.label} with {activity.firstName}</div>
+                    <div className="content paragraph-description">
+                      <div className="header activity-header">{activity.label} with {activity.firstName}</div>
                       <div className="description">
                         {activity.label === 'Food' ? 'Eat at' : <></>}
                         {activity.label === 'Sports' ? `Play ${activity.specificActivity ? activity.specificActivity : <></>} at` : <></>}

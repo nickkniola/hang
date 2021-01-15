@@ -27,7 +27,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="main ui container app-container">
         <Menu />
           <Switch location={this.props.location}>
             <Route exact path='/main' component={Main} />

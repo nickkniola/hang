@@ -9,7 +9,7 @@ export default class Menu extends React.Component {
       navAccess = true;
     }
     return (
-      <div className="ui menu">
+      <div className="ui menu nav-bar">
         <NavLink className="item" to="/main">
           <img src="/images/hang_logo.png"></img>
         </NavLink>

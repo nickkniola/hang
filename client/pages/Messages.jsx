@@ -137,7 +137,7 @@ export default class Messages extends React.Component {
         </div>
         <div className="ui fluid action input send-message ">
           <input type="text" placeholder="" value={this.state.message} onChange={this.handleChange}/>
-          <button type="button" className="ui icon button blue" onClick={this.handleSend}>
+          <button type="button" className="ui icon button large blue" onClick={this.handleSend}>
             <i className="send icon "></i>
           </button>
         </div>

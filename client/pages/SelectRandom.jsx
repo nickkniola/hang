@@ -59,42 +59,44 @@ export default class SelectRandom extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="activity-container">
         { this.state.error &&
           <>
             <div className="ui red header secondary-header ">No Activity Found. Please Try Again.</div>
             <div className="ui divider"></div>
           </>
         }
-        <h2 className="ui header secondary-header">
-          Random Activity
-        </h2>
-        <div className="ui segment">
-          <form className="ui form" onSubmit={this.handleSubmit}>
-            <div className="two fields">
-              <div className="field">
-                <label htmlFor="city">City</label>
-                <input type="text" name="city" id="city" placeholder="ex. Chicago" value={this.state.city} onChange={this.handleChange} required />
+        <div className="activity-form">
+          <h2 className="ui header secondary-header">
+            Random Activity
+          </h2>
+          <div className="ui segment">
+            <form className="ui form" onSubmit={this.handleSubmit}>
+              <div className="two fields">
+                <div className="field">
+                  <label htmlFor="city">City</label>
+                  <input type="text" name="city" id="city" placeholder="ex. Chicago" value={this.state.city} onChange={this.handleChange} required />
+                </div>
+                <div className="field">
+                  <label htmlFor="neighborhood" >Neighborhood</label>
+                  <input type="text" name="neighborhood" id="neighborhood" placeholder="ex. Uptown" value={this.state.neighborhood} onChange={this.handleChange} required/>
+                </div>
               </div>
               <div className="field">
-                <label htmlFor="neighborhood" >Neighborhood</label>
-                <input type="text" name="neighborhood" id="neighborhood" placeholder="ex. Uptown" value={this.state.neighborhood} onChange={this.handleChange} required/>
+                <label htmlFor="state">State</label>
+                <input type="text" name="state" id="state" placeholder="ex. Illinois" value={this.state.state} onChange={this.handleChange} required/>
               </div>
-            </div>
-            <div className="field">
-              <label htmlFor="state">State</label>
-              <input type="text" name="state" id="state" placeholder="ex. Illinois" value={this.state.state} onChange={this.handleChange} required/>
-            </div>
-            <div className="field">
-              <label htmlFor="date">Date</label>
-              <input type="date" name="date" id="date" placeholder="yyyy-mm-dd"
-                value={this.state.date} onChange={this.handleChange}
-                min="2021-01-01" max="2030-01-01" required/>
-            </div>
-            <button className="ui primary button" type='submit'>
-              Randomize
-            </button>
-          </form>
+              <div className="field">
+                <label htmlFor="date">Date</label>
+                <input type="date" name="date" id="date" placeholder="yyyy-mm-dd"
+                  value={this.state.date} onChange={this.handleChange}
+                  min="2021-01-01" max="2030-01-01" required/>
+              </div>
+              <button className="ui primary button" type='submit'>
+                Randomize
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     );

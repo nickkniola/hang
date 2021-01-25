@@ -75,7 +75,7 @@ export default class Matches extends React.Component {
         </div>
         <div className="nine wide column matches-container">
           <h2 className="secondary-header">Activities</h2>
-          <div className="ui divider thin-divider"></div>
+          <div className={this.state.activities && this.state.activities.length === 0 ? 'ui divider' : 'ui divider thin-divider'}></div>
           <div className="activities-container">
             {this.state.activities
               ? this.state.activities.length === 0

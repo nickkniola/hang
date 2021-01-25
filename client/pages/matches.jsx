@@ -53,19 +53,22 @@ export default class Matches extends React.Component {
           <h2 className="secondary-header">Matches</h2>
           <div className="ui middle aligned celled list">
             {this.state.matches
-              ? this.state.matches.map(match =>
-                  <div className="item" key={match.userId}>
-                    <img className="ui avatar image" src={match.profileImage} />
-                    <div className="content">
-                      <div className="header match-header">{match.firstName}</div>
+              ? this.state.matches.length === 0
+                  ? <> <div className="ui divider"></div>
+                    <div className="ui center aligned red small header no-matches">No Matches</div> </>
+                  : this.state.matches.map(match =>
+                    <div className="item" key={match.userId}>
+                      <img className="ui avatar image" src={match.profileImage} />
+                      <div className="content">
+                        <div className="header match-header">{match.firstName}</div>
+                      </div>
+                      <div className="right floated content">
+                        <button type="button" id={match.userId} onClick={this.handleClick} className="ui icon button basic message-button">
+                            <i className="comments alternate icon" id={match.userId}/>
+                        </button>
+                      </div>
                     </div>
-                    <div className="right floated content">
-                      <button type="button" id={match.userId} onClick={this.handleClick} className="ui icon button basic message-button">
-                          <i className="comments alternate icon" id={match.userId}/>
-                      </button>
-                    </div>
-                  </div>
-                )
+                  )
               : <div className="ui active centered inline loader"></div>
             }
           </div>
@@ -75,25 +78,27 @@ export default class Matches extends React.Component {
           <div className="ui divider thin-divider"></div>
           <div className="activities-container">
             {this.state.activities
-              ? this.state.activities.map(activity =>
-                <div key={activity.activityId}>
-                  <div className="item">
-                    <div className="content paragraph-description">
-                      <div className="header activity-header">{activity.label} with {activity.firstName}</div>
-                      <div className="description">
-                        {activity.label === 'Food' ? 'Eat at' : <></>}
-                        {activity.label === 'Sports' ? `Play ${activity.specificActivity ? activity.specificActivity : <></>} at` : <></>}
-                        {activity.label === 'Museum' ? 'Visit' : <></>}
-                        <a href={activity.externalGoogleMapsUrl} rel="noreferrer" target="_blank">
-                          <b> {activity.location} </b>
-                        </a>
-                        on {activity.date}.
+              ? this.state.activities.length === 0
+                  ? <div className="ui center aligned red small header no-matches">No Activities</div>
+                  : this.state.activities.map(activity =>
+                    <div key={activity.activityId}>
+                      <div className="item">
+                        <div className="content paragraph-description">
+                          <div className="header activity-header">{activity.label} with {activity.firstName}</div>
+                          <div className="description">
+                            {activity.label === 'Food' ? 'Eat at' : <></>}
+                            {activity.label === 'Sports' ? `Play ${activity.specificActivity ? activity.specificActivity : <></>} at` : <></>}
+                            {activity.label === 'Museum' ? 'Visit' : <></>}
+                            <a href={activity.externalGoogleMapsUrl} rel="noreferrer" target="_blank">
+                              <b> {activity.location} </b>
+                            </a>
+                            on {activity.date}.
+                          </div>
+                        </div>
                       </div>
+                      <br/>
                     </div>
-                  </div>
-                  <br/>
-                </div>
-                )
+                  )
               : <div className="ui active centered inline loader"></div>
             }
           </div>

@@ -141,6 +141,10 @@ h3.message-header {
   font-weight: bold;
 }
 
+.no-matches {
+  margin-top: 0 !important;
+}
+
 @media only screen and (min-width: 768px) {
   .app-container {
     width: 723px !important;

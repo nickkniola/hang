@@ -30,7 +30,7 @@ Try the application live at [https://hang-web-app.herokuapp.com](https://hang-we
 ## Development
 
 ### Getting Started
-Note: Requires Google Places API Key
+Note: Requires Google Places API Key and PostgreSQL.
 
 1. Clone the repository.
 
@@ -65,7 +65,7 @@ Note: Requires Google Places API Key
     PORT=3001
     DEV_SERVER_PORT=3000
     TOKEN_SECRET=<enterTokenSecret>
-    DATABASE_URL=postgres://dev:lfz@localhost/Hang
+    DATABASE_URL=postgres://<enterUsername>:<enterPassword></enterPassword>@localhost/Hang
     GOOGLE_PLACES_API_KEY=<enterGooglePlacesAPIKey>
     ```
 

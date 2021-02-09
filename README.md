@@ -65,7 +65,7 @@ Note: Requires Google Places API Key and PostgreSQL.
     PORT=3001
     DEV_SERVER_PORT=3000
     TOKEN_SECRET=<enterTokenSecret>
-    DATABASE_URL=postgres://<enterUsername>:<enterPassword></enterPassword>@localhost/Hang
+    DATABASE_URL=postgres://<enterUsername>:<enterPassword>@localhost/Hang
     GOOGLE_PLACES_API_KEY=<enterGooglePlacesAPIKey>
     ```
 

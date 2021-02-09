@@ -30,6 +30,7 @@ Try the application live at [https://hang-web-app.herokuapp.com](https://hang-we
 ## Development
 
 ### Getting Started
+Note: Requires Google Places API Key and PostgreSQL.
 
 1. Clone the repository.
 
@@ -42,19 +43,30 @@ Try the application live at [https://hang-web-app.herokuapp.com](https://hang-we
 
     ```shell
     npm install
+    npx node-pre-gyp rebuild -C ./node_modules/argon2
     ```
 
-3. Start PostgreSQL server
+3. Start PostgreSQL server.
 
     ```shell
     sudo service postgresql start
     pgweb --db=Hang
     ```
 
-4. Start webpack
+4. Start client/server in another terminal.
 
     ```shell
-    npm run build
+    npm run dev
     ```
 
-5. Visit http://localhost:3000 in browser
+5. Create .env file with the following text:
+
+    ```
+    PORT=3001
+    DEV_SERVER_PORT=3000
+    TOKEN_SECRET=<enterTokenSecret>
+    DATABASE_URL=postgres://<enterUsername>:<enterPassword>@localhost/Hang
+    GOOGLE_PLACES_API_KEY=<enterGooglePlacesAPIKey>
+    ```
+
+6. Visit http://localhost:3000 in browser

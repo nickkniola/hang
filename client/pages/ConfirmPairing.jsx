@@ -235,15 +235,13 @@ export default class ConfirmPairing extends React.Component {
     const profileImage = this.getProfileImage();
     return (
       <>
-        <div className="ui active modal">
-          <div className="header">Header</div>
+        <div className="ui active modal mini centered accept-modal">
+          <div className="header">Activity Created</div>
           <div className="content">
-            <p></p>
+            <p>Your activity has been created and once someone accepts it, will appear in your matches section.</p>
           </div>
           <div className="actions">
-            <div className="ui approve button">Approve</div>
-            <div className="ui button">Neutral</div>
-            <div className="ui cancel button">Cancel</div>
+            <div className="ui primary button">Okay</div>
           </div>
         </div>
         <div className="ui card centered">

@@ -10,6 +10,7 @@ export default class ConfirmPairing extends React.Component {
     };
     this.handleAccept = this.handleAccept.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleActivityCreation = this.handleActivityCreation.bind(this);
   }
 
   componentDidMount() {
@@ -82,6 +83,11 @@ export default class ConfirmPairing extends React.Component {
   }
 
   handleAccept() {
+    // modal should appear, which when clicked runs handleActivityCreation()
+    this.handleActivityCreation();
+  }
+
+  handleActivityCreation() {
     const formData = this.state;
     const savedUserDataJson = localStorage.getItem('userData');
     let savedUserData = null;
@@ -229,6 +235,17 @@ export default class ConfirmPairing extends React.Component {
     const profileImage = this.getProfileImage();
     return (
       <>
+        <div className="ui active modal">
+          <div className="header">Header</div>
+          <div className="content">
+            <p></p>
+          </div>
+          <div className="actions">
+            <div className="ui approve button">Approve</div>
+            <div className="ui button">Neutral</div>
+            <div className="ui cancel button">Cancel</div>
+          </div>
+        </div>
         <div className="ui card centered">
           <div className="image">
             <img src={profileImage} />

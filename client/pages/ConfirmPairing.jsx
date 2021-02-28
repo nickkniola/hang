@@ -6,10 +6,12 @@ export default class ConfirmPairing extends React.Component {
     super(props);
     this.state = {
       isLoading: true,
-      result: null
+      result: null,
+      showModal: false
     };
     this.handleAccept = this.handleAccept.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleActivityCreation = this.handleActivityCreation.bind(this);
   }
 
   componentDidMount() {
@@ -82,6 +84,10 @@ export default class ConfirmPairing extends React.Component {
   }
 
   handleAccept() {
+    this.setState({ showModal: true });
+  }
+
+  handleActivityCreation() {
     const formData = this.state;
     const savedUserDataJson = localStorage.getItem('userData');
     let savedUserData = null;
@@ -229,6 +235,18 @@ export default class ConfirmPairing extends React.Component {
     const profileImage = this.getProfileImage();
     return (
       <>
+        { this.state.showModal
+          ? <div className="ui active modal mini centered accept-modal">
+              <div className="header">Activity Created</div>
+              <div className="content">
+                <p>Your activity has been created and once someone accepts it, will appear in your matches section.</p>
+              </div>
+              <div className="actions">
+                <button className="ui primary button" type="button" onClick={this.handleActivityCreation}>Okay</button>
+              </div>
+            </div>
+          : <></>
+        }
         <div className="ui card centered">
           <div className="image">
             <img src={profileImage} />

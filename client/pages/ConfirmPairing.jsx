@@ -237,9 +237,9 @@ export default class ConfirmPairing extends React.Component {
       <>
         { this.state.showModal
           ? <div className="ui active modal mini centered accept-modal">
-              <div className="header">Activity Created</div> { /* if this.state.object: Activity Accepted, You are matched with -name- to go to -location-! */ }
+              <div className="header">{ this.state.activityObject ? 'Activity Accepted' : 'Activity Created' }</div> { /* if this.state.object: Activity Accepted, You are matched with -name- to go to -location-! */ }
               <div className="content">
-                <p>Your activity has been created and once someone accepts it, will appear in your matches section.</p>
+                <p>{this.state.activityObject ? 'You are matched with -name- to go to -location-!' : 'Your activity has been created and once someone accepts it, will appear in your matches section.'}</p>
               </div>
               <div className="actions">
                 <button className="ui primary button" type="button" onClick={this.handleActivityCreation}>Okay</button>

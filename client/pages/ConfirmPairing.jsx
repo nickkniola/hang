@@ -144,8 +144,8 @@ export default class ConfirmPairing extends React.Component {
   getActivityAction() {
     let activityAction = 'Eat at';
     if (this.state.activityType === 'Sports') {
-      if (this.state.preferredActivity) {
-        activityAction = `Play ${this.state.preferredActivity} at`;
+      if (this.state.activityObject && this.state.activityObject.specificActivity) {
+        activityAction = `Play ${this.state.activityObject.specificActivity} at`;
       } else {
         activityAction = 'Play at';
       }

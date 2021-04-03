@@ -86,9 +86,9 @@ export default class Matches extends React.Component {
                         <div className="content paragraph-description">
                           <div className="header activity-header">{activity.label} with {activity.firstName}</div>
                           <div className="description">
-                            {activity.label === 'Food' ? 'Eat at' : <></>}
-                            {activity.label === 'Sports' ? `Play ${activity.specificActivity ? activity.specificActivity : <></>} at` : <></>}
-                            {activity.label === 'Museum' ? 'Visit' : <></>}
+                            {activity.label === 'Food' ? 'Eat at' : ''}
+                            {activity.label === 'Sports' ? `Play ${activity.specificActivity ? activity.specificActivity : ''} at` : <></>}
+                            {activity.label === 'Museum' ? 'Visit' : ''}
                             <a href={activity.externalGoogleMapsUrl} rel="noreferrer" target="_blank">
                               <b> {activity.location} </b>
                             </a>

@@ -7,7 +7,8 @@ export default class SignUp extends React.Component {
       firstName: '',
       lastName: '',
       email: '',
-      password: ''
+      password: '',
+      invalidLogin: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,11 +32,29 @@ export default class SignUp extends React.Component {
     })
       .then(response => response.json())
       .then(data => {
-        const dataJson = JSON.stringify(data);
-        localStorage.setItem('userData', dataJson);
+        console.log(data.error);
+        if (data.error) {
+          console.log('set to true');
+          console.log(dataJson);
+          this.setState({ invalidLogin: true });
+          return;
+        }
+        return JSON.stringify(data);
+      })
+      .then(dataJson => {
+        if (dataJson) {
+          console.log('set to false');
+          console.log(dataJson);
+          this.setState({ invalidLogin: false });
+          localStorage.setItem('userData', dataJson);
+        }
       })
       .then(() => {
-        this.props.history.push('/pairing/select');
+        console.log('invalidLogin', this.state.invalidLogin);
+        if (!this.state.invalidLogin) {
+          console.log('doesnt enter here');
+          this.props.history.push('/pairing/select');
+        }
       })
       .catch(() => console.error('An unexpected error occurred'));
   }

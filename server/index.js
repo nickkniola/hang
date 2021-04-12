@@ -36,6 +36,10 @@ app.post('/api/auth/sign-up', (req, res, next) => {
     })
     .then(result => {
       const payload = result.rows[0];
+      if (!payload) {
+        throw new ClientError(401, 'invalid registration');
+      }
+      console.log('payload', payload);
       const token = jwt.sign(payload, process.env.TOKEN_SECRET);
       res.status(201).json({ token, user: payload });
     })

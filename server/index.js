@@ -28,13 +28,20 @@ app.post('/api/auth/sign-up', (req, res, next) => {
       const sql = `
         insert into "Users" ("firstName", "lastName", "email", "password", "profileImage")
              values ($1, $2, $3, $4, $5)
+          on conflict ("email") do nothing
           returning "userId"
       `;
       const params = [req.body.firstName, req.body.lastName, req.body.email, hashedPassword, '/images/placeholder-user.jpg'];
       return db.query(sql, params);
     })
     .then(result => {
-      const payload = result.rows[0];
+      let payload = {};
+      if (result.rows[0]) {
+        payload = result.rows[0];
+      }
+      if (!payload) {
+        throw new ClientError(401, 'invalid registration');
+      }
       const token = jwt.sign(payload, process.env.TOKEN_SECRET);
       res.status(201).json({ token, user: payload });
     })

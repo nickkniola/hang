@@ -32,23 +32,16 @@ export default class SignUp extends React.Component {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data.userId);
-        if (!data.userId) {
-          console.log('set to true');
+        if (!data.user || !data.user.userId) {
           this.setState({ invalidLogin: true });
-          return;
-        }
-        if (JSON.stringify(data) && JSON.stringify(data) !== undefined) {
+        } else {
           const dataJson = JSON.stringify(data);
-          console.log('set to false');
           this.setState({ invalidLogin: false });
           localStorage.setItem('userData', dataJson);
         }
       })
       .then(() => {
-        console.log('invalidLogin', this.state.invalidLogin);
         if (!this.state.invalidLogin) {
-          console.log('doesnt enter here');
           this.props.history.push('/pairing/select');
         }
       })
@@ -81,6 +74,12 @@ export default class SignUp extends React.Component {
               <div className="button-container">
                 <button className="large ui primary button" type="submit">Create Account</button>
               </div>
+              { this.state.invalidLogin
+                ? <div className="ui center aligned red small header">
+                  Email already registered.
+                  </div>
+                : <></>
+              }
             </div>
           </form>
         </div>

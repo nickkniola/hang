@@ -32,12 +32,12 @@ export default class SignUp extends React.Component {
     })
       .then(response => response.json())
       .then(data => {
-        if (!data.user || !data.user.userId) {
-          this.setState({ invalidLogin: true });
-        } else {
+        if (data.user && data.user.userId) {
           const dataJson = JSON.stringify(data);
           this.setState({ invalidLogin: false });
           localStorage.setItem('userData', dataJson);
+        } else {
+          this.setState({ invalidLogin: true });
         }
       })
       .then(() => {

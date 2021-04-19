@@ -28,7 +28,7 @@ app.post('/api/auth/sign-up', (req, res, next) => {
       const sql = `
         insert into "Users" ("firstName", "lastName", "email", "password", "profileImage")
              values ($1, $2, $3, $4, $5)
-          on conflict ("email") do nothing
+        on conflict ("email") do nothing
           returning "userId"
       `;
       const params = [req.body.firstName, req.body.lastName, req.body.email, hashedPassword, '/images/placeholder-user.jpg'];
